@@ -1,6 +1,11 @@
 (function (window) {
-	'use strict';
-
-	// Your starting point. Enjoy the ride!
-
+	$(() => {
+		$("#new-todo").on('keypress', (e) => {
+			var key = e.which;
+			if (key == 13) // the enter key code
+			{
+				console.log('enter pressed')
+			}
+		});
+	})
 })(window);
