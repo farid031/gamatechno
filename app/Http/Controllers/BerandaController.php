@@ -9,8 +9,11 @@ use App\Models\Task;
 class BerandaController extends Controller
 {
     public function index() {
-        $task = Task::all();
-    
-        return view('beranda')->with("tasks", $task);
+        $task = new Task;
+        $data = [
+            'tasks_active'  => $task->getDataTask('task_is_active'),
+            'tasks_complete'=> $task->getDataTask('task_is_completed')
+        ];
+        return view('beranda')->with($data);
     }
 }

@@ -20,4 +20,14 @@ class Task extends Model
 
         return $task;
     }
+
+    public function getDataTask($flag)
+    {
+        $task = DB::table('tasks')
+            ->select('*')
+            ->where($flag, '=', 1)
+            ->get();
+
+        return $task;
+    }
 }
