@@ -20,25 +20,6 @@
         </header>
         <!-- This section should be hidden by default and shown when there are todos -->
         @yield('content')
-        <!-- This footer should be hidden by default and shown when there are todos -->
-        <footer class="footer">
-            <!-- This should be `0 items left` by default -->
-            <span class="todo-count"><strong id="item-left">0</strong> item left</span>
-            <!-- Remove this if you don't implement routing -->
-            <ul class="filters">
-                <li>
-                    <a class="selected" href="#/">All</a>
-                </li>
-                <li>
-                    <a href="#/active">Active</a>
-                </li>
-                <li>
-                    <a href="#/completed">Completed</a>
-                </li>
-            </ul>
-            <!-- Hidden if no completed items are left ↓ -->
-            <button class="clear-completed">Clear completed</button>
-        </footer>
     </section>
     <!-- Scripts here. Don't remove ↓ -->
     <script src="{{URL::asset('js/jquery-3.6.0.min.js')}}"></script>

@@ -14,3 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'BerandaController@index');
+Route::get('/active', 'BerandaController@active');
+Route::get('/complete', 'BerandaController@complete');

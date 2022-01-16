@@ -21,6 +21,15 @@ class Task extends Model
         return $task;
     }
 
+    public function getCountAllTask()
+    {
+        $task = DB::table('tasks')
+            ->select('*')
+            ->count();
+
+        return $task;
+    }
+
     public function getDataTask($flag)
     {
         $task = DB::table('tasks')

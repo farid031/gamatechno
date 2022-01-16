@@ -25,5 +25,6 @@ Route::put('/setTaskToActive/{id}', 'TaskController@updateTaskToActive');
 Route::put('/setAllTaskToComplete', 'TaskController@updateAllTaskToComplete');
 Route::put('/setAllTaskToActive', 'TaskController@updateAllTaskToActive');
 Route::get('/countTask/{flag}', 'TaskController@countTask');
+Route::get('/countAllTask', 'TaskController@countAllTask');
 Route::delete('/deleteTask/{id}', 'TaskController@deleteTask');
-Route::delete('/deleteAllTask', 'TaskController@deleteAllTask');
+Route::delete('/deleteAllCompleteTask', 'TaskController@deleteAllCompleteTask');

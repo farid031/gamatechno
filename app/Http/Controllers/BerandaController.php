@@ -14,6 +14,26 @@ class BerandaController extends Controller
             'tasks_active'  => $task->getDataTask('task_is_active'),
             'tasks_complete'=> $task->getDataTask('task_is_completed')
         ];
-        return view('beranda')->with($data);
+        return view('all')->with($data);
+    }
+
+    public function active()
+    {
+        $task = new Task;
+        $data = [
+            'count_active'  => $task->getCountTask('task_is_active'),
+            'tasks_active' => $task->getDataTask('task_is_active')
+        ];
+        return view('active')->with($data);
+    }
+
+    public function complete()
+    {
+        $task = new Task;
+        $data = [
+            'count_complete'  => $task->getCountTask('task_is_completed'),
+            'tasks_complete' => $task->getDataTask('task_is_completed')
+        ];
+        return view('complete')->with($data);
     }
 }

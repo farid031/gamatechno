@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Response;
 
 class TaskController extends Controller
@@ -170,6 +171,21 @@ class TaskController extends Controller
         return response()->json($response, Response::HTTP_OK);
     }
 
+    public function countAllTask()
+    {
+        $task = new Task;
+
+        $count_task = $task->getCountAllTask();
+
+        $response = [
+            'status'    => Response::HTTP_OK,
+            'message'   => 'Count all task',
+            'data'  => array('count' => $count_task),
+        ];
+
+        return response()->json($response, Response::HTTP_OK);
+    }
+
     public function deleteTask($id)
     {
         $task = Task::find($id);
@@ -184,18 +200,17 @@ class TaskController extends Controller
         return response()->json($response, Response::HTTP_OK);
     }
 
-    public function deleteAllTask()
+    public function deleteAllCompleteTask()
     {
-        $task = Task::all();
+        $task = new Task;
+        $complete_task = $task->getDataTask('task_is_completed');
 
-        foreach ($task as $data) {
-            $data->delete();
-        }
+        if (count($complete_task) > 0) {
+            DB::delete('DELETE from tasks where task_is_completed = 1');
 
-        if (count($task) > 0) {
             $response = [
                 'status'    => Response::HTTP_OK,
-                'message'   => 'All task deleted',
+                'message'   => 'All task in complete list deleted',
                 'data'  => array(),
             ];
 
