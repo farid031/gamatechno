@@ -16,7 +16,7 @@
     <section class="todoapp">
         <header class="header">
             <h1>Super2Do</h1>
-            <input type="text" class="new-todo" id="new-todo" placeholder="What needs to be done?" autofocus>
+            <input type="text" class="new-todo" id="new-todo" placeholder="What needs to be done? (Press enter to save task)" autofocus>
         </header>
         <!-- This section should be hidden by default and shown when there are todos -->
         @yield('content')

@@ -1,9 +1,11 @@
 (function (window) {
 	$(() => {
-		//get count of the active task
+		//get url of current page
 		var url = $(location).attr('href')
 		const split_url = url.split('/')
 
+		//count of tasks
+		//if on active page
 		if (split_url[(split_url.length - 1)] === 'active') {
 			$.ajax({
 				headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
@@ -15,7 +17,7 @@
 					$("#item-left").html(count_active)
 				}
 			});
-		} else if (split_url[(split_url.length - 1)] === 'complete') {
+		} else if (split_url[(split_url.length - 1)] === 'complete') {// if on complete page
 			$.ajax({
 				headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
 				type:'GET',
